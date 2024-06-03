@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import { paymasterClient } from "./config/paymasterConfig";
 import { willSponsor } from "./utils/sponsor";
 import cors from "cors";
+import dotenv from 'dotenv';
 // import https from "https";
 // import fs from "fs";
 // import path from "path";
@@ -11,8 +12,8 @@ const app = express();
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
-
 app.use(cors());
+dotenv.config();
 
 const PORT = process.env.PORT || 8000;
 const paymasterService = process.env.PAYMASTER_SERVICE_URL;
